@@ -13,16 +13,10 @@ public class RoomManager
         roomDic = new Dictionary<string, Room>(10);
         InitializeRoom();
     }
-
-
-    public void UpdateCurrentRoom()
-    {
-        curRoom.Render();
-        curRoom.Input();
-        curRoom.Update();
-        curRoom.Result();
-    }
-
+    
+    /// <summary>
+    /// 초기화
+    /// </summary>
     public void InitializeRoom()
     { 
         //인스턴스 생성
@@ -46,11 +40,37 @@ public class RoomManager
         roomDic["RecoveryControlRoom"] = recoveryRoom;
         
         
-        
         //현재 방 설정
         curRoom = title;
     }
     
     
     
+    public void UpdateCurrentRoom()
+    {
+        curRoom.Render();
+        curRoom.Input();
+        curRoom.Update();
+        curRoom.Result();
+    }
+
+
+    public bool MoveTo(string roomKey)
+    {
+        if (roomDic.TryGetValue(roomKey, out var nextRoom))
+        {
+            curRoom = nextRoom;
+            
+            
+            Util.TerminalPrint($"{curRoom.Name}으로/로 이동합니다...", delay: 500);
+            Util.WaitForAnyKey();
+
+            Console.Clear();
+            curRoom.OnEnter();
+
+            return true;
+        }
+
+        return false;
+    }
 }

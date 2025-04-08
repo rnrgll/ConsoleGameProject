@@ -14,7 +14,6 @@ public class TermialHub : Room
 
     public override void Render()
     {
-        OnEnter();
     }
 
     public override void Input()

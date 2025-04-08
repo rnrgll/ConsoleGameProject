@@ -2,7 +2,7 @@ namespace ConsoleGameProject.Command;
 
 public class ScanCommand : ICommand
 {
-    public void Execute(string[] args)
+    public bool Execute(string[] args)
     {
         throw new NotImplementedException();
     }

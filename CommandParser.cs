@@ -30,7 +30,8 @@ public class CommandParser
     /// 명령어 이름과 명령어 객체 생성 함수 딕셔너리에 등록
     /// </summary>
     public void InitializeCommand()
-    { 
+    {
+        commands["start"] = () => new StartCommand();
         commands["move"] = () => new MoveCommand();
         commands["scan"] = () => new ScanCommand();
         commands["recover"] = () => new RecoverCommand();
@@ -46,7 +47,7 @@ public class CommandParser
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    public bool TryParseCommands(string input)
+    public bool ParseAndExecute(string input)
     {
         //빈 문자열, 공백 입력시 무시
         if (string.IsNullOrWhiteSpace(input)) return false;
@@ -66,12 +67,24 @@ public class CommandParser
         {
             //등록됐다면 명령어 객체 생성
             ICommand command = commandFactory();
+            
             //실행
-            command.Execute(args);
-            return true;
+            bool isSuccess = command.Execute(args);
+
+            if (!isSuccess)
+            {
+                //출력문구
+                Util.TerminalError("오류 발생 : 명령어 실행에 실패했습니다.",
+                    "500_COMMAND_EXECUTION_FAILED");
+            }
+                
+            
+            return isSuccess;
         }
 
         //실패
+        Util.TerminalError("오류 발생 : 명령어를 인식할 수 없습니다.",
+            "404_COMMAND_NOT_FOUND");
         return false;
 
 

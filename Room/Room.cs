@@ -17,7 +17,7 @@ public abstract class Room
     {
         if (!isEntered)
         {
-            Util.Print($"[{Name}] ", delay:500);
+            Util.PrintLine($"[{Name}] ", delay:500);
             Util.PrintLine(Description, delay: 500);
             isEntered = true;
         }
