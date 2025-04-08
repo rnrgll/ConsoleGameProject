@@ -4,9 +4,9 @@ public static class GameManager
 {
 
     private static bool isRunning;
-    private static RoomManager roomManager;
-    private static Player player;
-    private static CommandParser parser;
+    public static RoomManager roomManager;
+    public static Player player;
+    public static CommandParser parser;
     
     
     public static void Run()
