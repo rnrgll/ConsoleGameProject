@@ -2,23 +2,30 @@ namespace ConsoleGameProject;
 
 public class TermialHub : Room
 {
+    public TermialHub()
+    {
+        Name = "Terminal Hub - 터미널 허브";
+        Description = "중앙 콘솔이 망가져 있습니다. 모듈이 복원되면 이동이 가능합니다.";
+        
+        Connections["northeast"] = "ErrorLogRoom";
+        Connections["south"] = "VirusZone";
+
+    }
+
     public override void Render()
     {
-        throw new NotImplementedException();
+        OnEnter();
     }
 
     public override void Input()
     {
-        throw new NotImplementedException();
     }
 
     public override void Update()
     {
-        throw new NotImplementedException();
     }
 
     public override void Result()
     {
-        throw new NotImplementedException();
     }
 }

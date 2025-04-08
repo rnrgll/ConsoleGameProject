@@ -46,9 +46,6 @@ public class RoomManager
         roomDic["RecoveryControlRoom"] = recoveryRoom;
         
         
-        //방 연결 설정
-        
-        
         
         //현재 방 설정
         curRoom = title;
