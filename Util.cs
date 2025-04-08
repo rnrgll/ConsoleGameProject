@@ -41,6 +41,7 @@ public class Util
     {
         TerminalPrint(message, ConsoleColor.Red);
         PrintLine($"> ERROR_CODE_{errorCode}: {errorCode.Replace("_", " ")}", ConsoleColor.Red);
+        Console.WriteLine();
     }
 
     

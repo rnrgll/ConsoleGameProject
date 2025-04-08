@@ -73,4 +73,14 @@ public class RoomManager
 
         return false;
     }
+
+    public Room GetRoom(string roomKey)
+    {
+        if (roomDic.TryGetValue(roomKey, out var room))
+        {
+            return room;
+        }
+
+        return null;
+    }
 }
