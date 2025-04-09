@@ -13,7 +13,7 @@ public class Title : Room
 
     public override void OnEnter()
     {
-        
+        Console.CursorVisible = false;
     }
 
     public override void Render()
@@ -21,12 +21,12 @@ public class Title : Room
         Console.Clear();
 
         // 로고
-        Util.PrintLine("  ██████╗  ██╗      ██╗ ████████╗  ██████╗ ██╗  ██╗          ████████╗ ███████╗ ██████╗  ███╗   ███╗", ConsoleColor.Magenta,null, 200);
-        Util.PrintLine(" ██╔════╝  ██║      ██║ ╚══██╔══╝ ██╔════╝ ██║  ██║          ╚══██╔══╝ ██╔════╝ ██╔══██╗ ████╗ ████║", ConsoleColor.Magenta, null, 200);
-        Util.PrintLine(" ██║  ███║ ██║      ██║    ██║    ██║      ███████║             ██║    █████╗   ██████╔╝ ██╔████╔██║", ConsoleColor.Cyan , null, 200);
-        Util.PrintLine(" ██║   ██║ ██║      ╚═╝    ██║    ██║      ██╔══██║             ██║    ██╔══╝   ██╔══██╗ ██║╚██╔╝██║", ConsoleColor.DarkCyan, null, 200);
-        Util.PrintLine(" ╚██████╔╝ ███████╗ ██╗    ██║    ╚██████╗ ██║  ██║ ███████╗    ██║    ███████╗ ██║  ██║ ██║ ╚═╝ ██║", ConsoleColor.Yellow, null, 200);
-        Util.PrintLine("  ╚═════╝  ╚══════╝ ╚═╝    ╚═╝     ╚═════╝ ╚═╝  ╚═╝ ╚══════╝    ╚═╝    ╚══════╝ ╚═╝  ╚═╝ ╚═╝     ╚═╝", ConsoleColor.DarkGray, null, 200);
+        Util.PrintLine("  ██████╗  ██╗      ██╗ ████████╗  ██████╗ ██╗  ██╗          ████████╗ ███████╗ ██████╗  ███╗   ███╗", ConsoleColor.Magenta,null, 100);
+        Util.PrintLine(" ██╔════╝  ██║      ██║ ╚══██╔══╝ ██╔════╝ ██║  ██║          ╚══██╔══╝ ██╔════╝ ██╔══██╗ ████╗ ████║", ConsoleColor.Magenta, null, 100);
+        Util.PrintLine(" ██║  ███║ ██║      ██║    ██║    ██║      ███████║             ██║    █████╗   ██████╔╝ ██╔████╔██║", ConsoleColor.Cyan , null, 100);
+        Util.PrintLine(" ██║   ██║ ██║      ╚═╝    ██║    ██║      ██╔══██║             ██║    ██╔══╝   ██╔══██╗ ██║╚██╔╝██║", ConsoleColor.DarkCyan, null, 100);
+        Util.PrintLine(" ╚██████╔╝ ███████╗ ██╗    ██║    ╚██████╗ ██║  ██║ ███████╗    ██║    ███████╗ ██║  ██║ ██║ ╚═╝ ██║", ConsoleColor.Yellow, null, 100);
+        Util.PrintLine("  ╚═════╝  ╚══════╝ ╚═╝    ╚═╝     ╚═════╝ ╚═╝  ╚═╝ ╚══════╝    ╚═╝    ╚══════╝ ╚═╝  ╚═╝ ╚═╝     ╚═╝", ConsoleColor.DarkGray, null, 300);
         Console.WriteLine();
 
         Util.PrintLine("                             게임을 시작하려면 아무 키나 입력하세요.");

@@ -37,7 +37,7 @@ public class CommandParser
         if (!Define.Commands.TryGetValue(commandName, out Func<ICommand> commandFactory))
         {
             //실패
-            Util.TerminalError("오류 발생 :존재하지 않는 명령어입니다.",
+            Util.TerminalError("오류 :존재하지 않는 명령어입니다.",
                 "404_COMMAND_NOT_FOUND");
             return false;
         }
@@ -45,7 +45,7 @@ public class CommandParser
         // 명령어가 현재 사용 가능한 명령어인지 체크
         if (!GameManager.player.UsableCommand.Contains(commandName))
         {
-            Util.TerminalError($"오류: '{commandName}' 명령어는 사용할 수 없습니다. 복구가 필요합니다.",
+            Util.TerminalError($"오류 : '{commandName}' 명령어는 사용할 수 없습니다. 복구가 필요합니다.",
                 "403_COMMAND_LOCKED");
             return false;
 
@@ -61,7 +61,7 @@ public class CommandParser
         if (!isSuccess)
         {
             //출력문구
-            Util.TerminalError("오류 발생 : 명령어 실행에 실패했습니다.",
+            Util.TerminalError("오류 : 명령어 실행에 실패했습니다.",
                 "500_COMMAND_EXECUTION_FAILED");
         }
                 

@@ -1,13 +1,13 @@
 namespace ConsoleGameProject.Command;
 
-public class MoveCommand : Command, ICommand
+public class MoveCommand : Command
 {
     public MoveCommand() : base("move", Define.CommandHints.Move)
     {
         
     }
 
-    public bool Execute(string[] args)
+    public override bool Execute(string[] args)
     {
         if (args.Length != 1)
         {

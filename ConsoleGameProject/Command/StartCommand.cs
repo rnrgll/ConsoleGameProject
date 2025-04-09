@@ -1,12 +1,12 @@
 namespace ConsoleGameProject.Command;
 
-public class StartCommand : Command, ICommand
+public class StartCommand : Command
 {
     public StartCommand() : base("start", Define.CommandHints.Start)
     {
     }
 
-    public bool Execute(string[] args)
+    public override bool Execute(string[] args)
     {
         if (args.Length > 0)
         {

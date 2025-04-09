@@ -1,6 +1,6 @@
 namespace ConsoleGameProject.Command;
 
-public abstract class Command
+public abstract class Command : ICommand
 {
     public string Name { get; protected set; }
     public string UsageHint { get; protected set; }       //사용법
@@ -24,4 +24,6 @@ public abstract class Command
             Console.WriteLine();
         }; 
     }
+    
+    public abstract bool Execute(string[] args);
 }

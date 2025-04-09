@@ -1,13 +1,14 @@
 using ConsoleGameProject.Command;
+using ConsoleGameProject.Interface;
 
 namespace ConsoleGameProject;
 
-public class TermialHub : Room, IRecoverableRoom
+public class TermialHub : Room, IRecoverable, IScannable
 {
     public string RecoverableModule => "move";
-    public bool isRecoverd { get; set; } = false;
+    public bool isRecovered { get; set; } = false;
 
-    public Action RecoverHint { get; set; } = () =>
+    public Action OnScanned { get; set; } = () =>
     {
         Util.TerminalLog("주변에서 손상된 파일을 발견했습니다.", delay: 500);
         Util.TerminalLog("파일을 출력합니다..", delay: 1500);
@@ -25,6 +26,7 @@ public class TermialHub : Room, IRecoverableRoom
         Util.PrintLine("   예시: r3c0v#r m0du1e m0%e", delay: 200);
         Util.PrintLine("───────────────────────────────────────────────────", delay: 200);
     };
+  
 
 
     public TermialHub()
@@ -34,12 +36,12 @@ public class TermialHub : Room, IRecoverableRoom
         {
             "중앙 시스템 허브에 접속되었습니다.",
             "이곳은 여러 경로가 연결되는 핵심 구역입니다.",
-            "일부 통로에서 반응이 감지됩니다.",
+            "일부 경로에서 신호가 감지되고 있습니다.",
             "다른 곳으로 이동하려면 특정 명령어를 사용해야 합니다."
             
         };
         
-        Connections["northeast"] = "ErrorLogRoom";
+        Connections["northeast"] = "LogControlRoom";
         Connections["south"] = "VirusZone";
         
     }
@@ -54,7 +56,8 @@ public class TermialHub : Room, IRecoverableRoom
             Util.TerminalLog("scan 명령어가 활성화되었습니다.", ConsoleColor.Green);
             Console.WriteLine();
         
-            GameManager.player.AddCommand(new ScanCommand());
+            // GameManager.player.AddCommand(new ScanCommand());
+            new ScanCommand().OnRecovered?.Invoke();
         }
     }
 
@@ -62,9 +65,6 @@ public class TermialHub : Room, IRecoverableRoom
     public override void Render()
     {
 
-       
-       
-        
         
     }
 
@@ -76,4 +76,6 @@ public class TermialHub : Room, IRecoverableRoom
     public override void Result()
     {
     }
+
+   
 }

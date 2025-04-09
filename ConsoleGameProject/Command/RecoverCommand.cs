@@ -1,13 +1,15 @@
+using ConsoleGameProject.Interface;
+
 namespace ConsoleGameProject.Command;
 
-public class RecoverCommand : Command, ICommand
+public class RecoverCommand : Command
 {
     public RecoverCommand():base("recover", Define.CommandHints.Recover)
     {
     }
 
 
-    public bool Execute(string[] args)
+    public override bool Execute(string[] args)
     {
         // 명령어 : recover module [모듈명]
         // - 인자가 module, 모듈명 2개여야 한다. = args length == 2 (완)
@@ -27,7 +29,7 @@ public class RecoverCommand : Command, ICommand
 
         string moduleName = args[1].ToLower();
 
-        if (GameManager.roomManager.CurRoom is not IRecoverableRoom recoverableRoom)
+        if (GameManager.roomManager.CurRoom is not IRecoverable recoverableRoom)
         {
             Util.TerminalError("오류 : 복구할 수 있는 모듈이 없습니다.", "403_RECOVERY_FORBIDDEN");
             return false;
@@ -48,9 +50,17 @@ public class RecoverCommand : Command, ICommand
         //모듈 복구 처리
         if (Define.Commands.TryGetValue(moduleName, out var moduleFactory))
         {
-            Command recoveredModule = moduleFactory() as Command;
-            recoveredModule.OnRecovered?.Invoke();
-            recoverableRoom.isRecoverd = true;
+            Command recoveredCommand = moduleFactory() as Command;
+            recoveredCommand.OnRecovered?.Invoke();
+            recoverableRoom.isRecovered = true;
+            
+            //로그 시스템이 있는 방이면 로그도 넣어준다.
+            if (recoverableRoom is ILoggable loggableRoom)
+            {
+                loggableRoom.LogMessages.AddRange(loggableRoom.PostLogMessages);
+            }
+            
+            
             return true;
 
 
@@ -59,4 +69,10 @@ public class RecoverCommand : Command, ICommand
         return false;
 
     }
+
+
+    // public void RecoverModule(Command recoveredCommand)
+    // {
+    //     recoveredCommand.OnRecovered.Invoke();
+    // }
 }

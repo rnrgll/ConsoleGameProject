@@ -1,9 +1,9 @@
 namespace ConsoleGameProject;
 
-public class VirusZone : Room, IRecoverableRoom
+public class VirusZone : Room, IRecoverable
 {
     public string RecoverableModule => "attack";
-    public bool isRecoverd { get; set; }
+    public bool isRecovered { get; set; }
     public Action RecoverHint { get; set; }
 
     public VirusZone()

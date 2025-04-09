@@ -10,7 +10,7 @@ public class Define
         { "move", () => new MoveCommand() },
         { "scan", () => new ScanCommand() },
         { "recover", () => new RecoverCommand() },
-        //{ "log", () => new LogCommand() },
+        { "log", () => new LogCommand() },
         //{ "shop", () => new ShopCommand() },
         //{ "attack", () => new AttackCommand() }
     };
@@ -18,12 +18,12 @@ public class Define
     public static class CommandHints
     {
         public const string Start = "";
-        public const string Move = "방향을 입력해 방을 이동할 수 있습니다. (예: move north)";
-        public const string Log = "log 명령어를 입력해 시스템 로그를 열람할 수 있습니다.";
-        public const string Scan = "scan 명령어로 현재 방의 정보와 연결된 경로를 확인할 수 있습니다.";
-        public const string Shop = "buy 명령어로 아이템을 구매할 수 있습니다. key_item이 필요합니다.";
-        public const string Attack = "attack 명령어로 전투를 시작할 수 있습니다. 적을 쓰러뜨리세요!";
         public const string Recover = "";
+        public const string Move = "move [방향] : 방향을 입력해 방을 이동할 수 있습니다. (예: move north)";
+        public const string Scan = "scan : 현재 위치를 스캔해 구역 정보를 확인합니다.";
+        public const string Log = "log : 시스템 로그를 조회합니다. 해당 구역에 로그 시스템이 있을 경우에만 사용 가능합니다.";
+        public const string Vaccine = "";
+        public const string Attack = "attack 명령어로 전투를 시작할 수 있습니다. 적을 쓰러뜨리세요!";
         public const string Logout = "";
     }
     

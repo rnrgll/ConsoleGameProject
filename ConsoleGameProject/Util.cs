@@ -47,7 +47,7 @@ public class Util
     
     public static void TerminalLog(string message, ConsoleColor? textColor = null, int delay = 0)
     {
-        Print("[GL!TCH_TERM] >> ", textColor==null? ConsoleColor.DarkGray:textColor);
+        Print("[GL!TCH_TERM] >> ", textColor==null? null:textColor);
         PrintLine(message, textColor, null, delay);
     }
     
