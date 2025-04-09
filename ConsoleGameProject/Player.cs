@@ -25,10 +25,11 @@ public class Player
     //     CombatLogs.Enqueue(log);
     // }
 
-    public void AddModule(Command.Command command)
+    public void AddCommand(Command.Command command)
     {
         UsableCommand.Add(command.Name);
     }
+    
     
 
     

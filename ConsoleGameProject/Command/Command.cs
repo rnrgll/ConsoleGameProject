@@ -15,10 +15,13 @@ public abstract class Command
         UsageHint = usageHint;
         OnRecovered  = () =>
         {
+            GameManager.player.AddCommand(this);
+            
             //복원 메시지 출력
+            Util.PrintProgressBar($"모듈 {Name} 복원 중");
             Util.TerminalLog($"모듈 '{Name}' 복원이 완료되었습니다!", ConsoleColor.Green);
             Util.TerminalLog(UsageHint);
-            GameManager.player.AddModule(this);
+            Console.WriteLine();
         }; 
     }
 }

@@ -2,12 +2,13 @@ namespace ConsoleGameProject;
 
 public class Title : Room
 {
-    private string nextRoomKey = "Intro";
+    //private string nextRoomKey = "Intro";
+    private string nextRoomKey = "TerminalHub";
     
     public Title()
     {
         Name = "시작 화면";
-        Description = "시작 화면";
+        //Description = "시작 화면";
     }
 
     public override void OnEnter()
@@ -50,5 +51,6 @@ public class Title : Room
     public override void Result()
     {
         GameManager.roomManager.MoveTo(nextRoomKey);
+        Console.CursorVisible = true;
     }
 }

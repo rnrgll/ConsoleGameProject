@@ -50,7 +50,7 @@ public class RecoverCommand : Command, ICommand
         {
             Command recoveredModule = moduleFactory() as Command;
             recoveredModule.OnRecovered?.Invoke();
-
+            recoverableRoom.isRecoverd = true;
             return true;
 
 

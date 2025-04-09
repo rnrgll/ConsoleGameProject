@@ -3,11 +3,13 @@ namespace ConsoleGameProject;
 public class VirusZone : Room, IRecoverableRoom
 {
     public string RecoverableModule => "attack";
+    public bool isRecoverd { get; set; }
+    public Action RecoverHint { get; set; }
 
     public VirusZone()
     {
         Name = "Virus Zone - 바이러스 존";
-        Description = "치명적인 바이러스가 떠돌고 있습니다. 접근이 위험합니다.";
+        //Description = "치명적인 바이러스가 떠돌고 있습니다. 접근이 위험합니다.";
         
         Connections["north"] = "TerminalHub";
         Connections["east"] = "RecoveryControlRoom";

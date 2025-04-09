@@ -76,4 +76,15 @@ public class Util
         Console.ReadKey(true);
     }
 
+
+    public static void PrintProgressBar(string message)
+    {
+        Util.Print($"{message} [",ConsoleColor.Green);
+        for (int i = 0; i <= 20; i++)
+        {
+            Util.Print("■", ConsoleColor.Green, delay:50);
+        }
+        Util.PrintLine("] 완료",ConsoleColor.Green, delay:500);
+    }
+
 }
