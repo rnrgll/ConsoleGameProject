@@ -21,7 +21,16 @@ public abstract class Room
     }
     
     public abstract void Render();
-    public abstract void Input();
+
+    public virtual void Input()
+    {
+        string input;
+        do
+        {
+            input = Util.TerminalInput();
+        }
+        while (!GameManager.parser.ParseAndExecute(input));
+    }
     public abstract void Update();
     public abstract void Result();
 }

@@ -18,7 +18,7 @@ public class ScanCommand : Command, ICommand
             return false;
         }
         
-       Util.TerminalPrint("현재 위치를 스캔합니다...", delay:1000);
+       Util.TerminalLog("현재 위치를 스캔합니다...", delay:1000);
        Console.WriteLine();
        Util.PrintLine("[현재 위치]",delay:500);
        Util.PrintLine(GameManager.roomManager.CurRoom.Name,delay:500);

@@ -26,5 +26,17 @@ public class Define
         public const string Recover = "";
         public const string Logout = "";
     }
+    
+    
+    
+    
+    public static class Theme
+    {
+        public static readonly ConsoleColor SystemTag = ConsoleColor.DarkGray;
+        public static readonly ConsoleColor Info = ConsoleColor.Cyan;
+        public static readonly ConsoleColor Warning = ConsoleColor.Yellow;
+        public static readonly ConsoleColor Error = ConsoleColor.Red;
+        public static readonly ConsoleColor Prompt = ConsoleColor.Green;
+    }
 
 }

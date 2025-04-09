@@ -20,14 +20,6 @@ public class TermialHub : Room, IRecoverableRoom
     {
     }
 
-    public override void Input()
-    {
-        Util.Print("> ");
-        while(!GameManager.parser.ParseAndExecute(Console.ReadLine()))
-        {
-            Util.Print("> ");
-        }
-    }
 
     public override void Update()
     {

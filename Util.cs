@@ -7,15 +7,11 @@ public class Util
     
     public static void PrintLine(string context, ConsoleColor? textColor = null, ConsoleColor? backgroundColor = null, int delay = 0)
     {
-        if (textColor.HasValue)
-            Console.ForegroundColor = textColor.Value;
-
-        if (backgroundColor.HasValue)
-            Console.BackgroundColor = backgroundColor.Value;
+        SetConsoleColor(textColor,backgroundColor);
         Console.WriteLine(context);
         
         Thread.Sleep(delay);
-        Console.ResetColor();
+        ResetColor();
     }
     
     public static void Print(string context, ConsoleColor? textColor = null, ConsoleColor? backgroundColor = null, int delay = 0)
@@ -31,7 +27,25 @@ public class Util
         Console.ResetColor();
     }
     
-    public static void TerminalPrint(string message, ConsoleColor? textColor = null, int delay = 0)
+    private static void SetConsoleColor(ConsoleColor? fg, ConsoleColor? bg)
+    {
+        if (fg.HasValue)
+            Console.ForegroundColor = fg.Value;
+        if (bg.HasValue)
+            Console.BackgroundColor = bg.Value;
+    }
+
+    private static void ResetColor() => Console.ResetColor();
+
+    
+    public static void TerminalLine(string message, ConsoleColor? textColor = null, int delay = 0)
+    {
+        Print("> ", textColor);
+        PrintLine(message, textColor, null, delay:delay);
+    }
+
+    
+    public static void TerminalLog(string message, ConsoleColor? textColor = null, int delay = 0)
     {
         Print("[GL!TCH_TERM] >> ", textColor==null? ConsoleColor.DarkGray:textColor);
         PrintLine(message, textColor, null, delay);
@@ -39,12 +53,17 @@ public class Util
     
     public static void TerminalError(string message, string errorCode = "UNKNOWN")
     {
-        TerminalPrint(message, ConsoleColor.Red);
-        PrintLine($"> ERROR_CODE_{errorCode}: {errorCode.Replace("_", " ")}", ConsoleColor.Red);
+        TerminalLog(message, ConsoleColor.Red);
+        TerminalLine($"ERROR_CODE_{errorCode}: {errorCode.Replace("_", " ")}", ConsoleColor.Red);
         Console.WriteLine();
     }
 
-    
+
+    public static string TerminalInput(string prompt = "> ")
+    {
+        Print(prompt);
+        return Console.ReadLine();
+    }
     
     
     public static void WaitForAnyKey(string message = "[GL!TCH_TERM] >> 계속하려면 아무 키나 누르세요...", ConsoleColor? textColor = ConsoleColor.DarkGray)

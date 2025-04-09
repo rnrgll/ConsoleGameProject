@@ -62,7 +62,7 @@ public class RoomManager
             curRoom = nextRoom;
             
             
-            Util.TerminalPrint($"{curRoom.Name}으로/로 이동합니다...", delay: 500);
+            Util.TerminalLog($"{curRoom.Name}으로/로 이동합니다...", delay: 500);
             Util.WaitForAnyKey();
 
             Console.Clear();

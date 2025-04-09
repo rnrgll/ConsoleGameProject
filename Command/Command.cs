@@ -16,8 +16,8 @@ public abstract class Command
         OnRecovered  = () =>
         {
             //복원 메시지 출력
-            Util.TerminalPrint($"모듈 '{Name}' 복원이 완료되었습니다!", ConsoleColor.Green);
-            Util.TerminalPrint(UsageHint);
+            Util.TerminalLog($"모듈 '{Name}' 복원이 완료되었습니다!", ConsoleColor.Green);
+            Util.TerminalLog(UsageHint);
             GameManager.player.AddModule(this);
         }; 
     }
