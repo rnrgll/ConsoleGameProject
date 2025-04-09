@@ -1,8 +1,11 @@
 namespace ConsoleGameProject;
 
+using RoomKey = ConsoleGameProject.Define.RoomKey;
+
+
 public class RoomManager
 {
-    private Dictionary<string, Room> roomDic;
+    private Dictionary<RoomKey, Room> roomDic;
     private Room curRoom;
     public Room CurRoom => curRoom;
     
@@ -10,7 +13,7 @@ public class RoomManager
     //Room 생성 및 dictionary 에 추가하여 초기 설정하기
     public RoomManager()
     {
-        roomDic = new Dictionary<string, Room>(10);
+        roomDic = new Dictionary<RoomKey, Room>(10);
         InitializeRoom();
     }
     
@@ -20,28 +23,21 @@ public class RoomManager
     public void InitializeRoom()
     { 
         //인스턴스 생성
-        //방 종류 : 터미널 허브, 에러 로그룸, 데이터 캐시, 복원 컨트롤 룸, 바이러스 존, 타이틀 씬, 인트로씬, 엔딩 씬
-        Room title = new Title();
-        Room intro = new Intro();
-        Room ending = new Ending();
-        Room terminalHub = new TermialHub();
-        Room logControlRoom = new LogControl();
-        Room virusZone = new VirusZone();
-        Room recoveryRoom = new RecoveryControl();
+        //방 종류 : 터미널 허브, 로그 제어실, 복원 컨트롤 룸, 바이러스 존, 타이틀 씬, 인트로씬, 엔딩 씬
         
         
         //딕셔너리에 추가
-        roomDic["Title"] = title;
-        roomDic["Intro"] = intro;
-        roomDic["Ending"] = ending;
-        roomDic["TerminalHub"] = terminalHub;
-        roomDic["LogControlRoom"] = logControlRoom;
-        roomDic["VirusZone"] = virusZone;
-        roomDic["RecoveryControlRoom"] = recoveryRoom;
+        roomDic[RoomKey.Title] = new Title();
+        roomDic[RoomKey.Intro] = new Intro();
+        roomDic[RoomKey.Ending] = new Ending();
+        roomDic[RoomKey.TerminalHub] = new TermialHub();
+        roomDic[RoomKey.LogControlRoom] = new LogControl();
+        roomDic[RoomKey.VirusZone] = new VirusZone();
+        roomDic[RoomKey.RecoveryControlRoom] = new RecoveryControl();
         
         
         //현재 방 설정
-        curRoom = title;
+        curRoom = roomDic[RoomKey.Title];
     }
     
     
@@ -55,7 +51,7 @@ public class RoomManager
     }
 
 
-    public bool MoveTo(string roomKey)
+    public bool MoveTo(RoomKey roomKey)
     {
         if (roomDic.TryGetValue(roomKey, out var nextRoom))
         {
@@ -76,7 +72,7 @@ public class RoomManager
         return false;
     }
 
-    public Room GetRoom(string roomKey)
+    public Room GetRoom(RoomKey roomKey)
     {
         if (roomDic.TryGetValue(roomKey, out var room))
         {

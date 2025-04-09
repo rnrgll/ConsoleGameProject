@@ -12,9 +12,8 @@ public class RecoveryControl : Room, IRecoverable
     {
         Name = "Recovery Control Room - 복원 컨트롤 룸";
         //Description = "시스템 복원 모듈이 이곳에서 작동됩니다. 마지막 점검이 필요합니다.";
-        
-        Connections["west"] = "VirusZone";
-        Connections["north"] = "DataCacheRoom"; 
+
+        Connections["north"] = Define.RoomKey.TerminalHub;
     }
     
 

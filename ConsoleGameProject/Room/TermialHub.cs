@@ -40,10 +40,11 @@ public class TermialHub : Room, IRecoverable, IScannable
             "다른 곳으로 이동하려면 특정 명령어를 사용해야 합니다."
             
         };
-        
-        Connections["northeast"] = "LogControlRoom";
-        Connections["south"] = "VirusZone";
-        
+
+        Connections["northeast"] = Define.RoomKey.LogControlRoom;
+        Connections["east"] = Define.RoomKey.VirusZone;
+        Connections["south"] = Define.RoomKey.RecoveryControlRoom;
+
     }
 
     public override void OnEnter()

@@ -3,7 +3,7 @@ namespace ConsoleGameProject;
 public class Title : Room
 {
     //private string nextRoomKey = "Intro";
-    private string nextRoomKey = "TerminalHub";
+    private Define.RoomKey nextRoomKey = Define.RoomKey.Intro; //최종에서는 Intro로 돌려놓기
     
     public Title()
     {

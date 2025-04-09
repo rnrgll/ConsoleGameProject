@@ -7,7 +7,7 @@ public abstract class Room
     //설명
     public string[] Description { get; protected set; }
     //이동 가능한 방향
-    public Dictionary<string, string> Connections { get; protected set; } = new Dictionary<string, string>();
+    public Dictionary<string, Define.RoomKey> Connections { get; protected set; } = new ();
     
     
     

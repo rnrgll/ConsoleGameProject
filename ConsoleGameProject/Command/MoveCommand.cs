@@ -18,7 +18,7 @@ public class MoveCommand : Command
 
         string direction = args[0].ToLower();
 
-        if (GameManager.roomManager.CurRoom.Connections.TryGetValue(direction, out string nextRoomKey))
+        if (GameManager.roomManager.CurRoom.Connections.TryGetValue(direction, out Define.RoomKey nextRoomKey))
         {
             if (GameManager.roomManager.MoveTo(nextRoomKey))
             {

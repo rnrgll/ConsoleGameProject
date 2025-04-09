@@ -27,6 +27,17 @@ public class Define
         public const string Logout = "";
     }
     
+    public enum RoomKey
+    {
+        Title,
+        Intro,
+        Ending,
+        TerminalHub,
+        LogControlRoom,
+        VirusZone,
+        RecoveryControlRoom
+        
+    }
     
     
     

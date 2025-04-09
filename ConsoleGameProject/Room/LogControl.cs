@@ -53,7 +53,8 @@ public class LogControl : Room, IRecoverable, IScannable, ILoggable
             "로그 제어실에 접속되었습니다.",
             "본 구역은 전역 로그 시스템을 제어하는 핵심 구역입니다.",
         };
-        Connections["southwest"] = "TerminalHub";
+        Connections["southwest"] = Define.RoomKey.TerminalHub;
+        Connections["southeast"] = Define.RoomKey.VirusZone;
     }
  
 

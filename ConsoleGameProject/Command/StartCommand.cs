@@ -20,7 +20,7 @@ public class StartCommand : Command
 
         
 
-        GameManager.roomManager.MoveTo("TerminalHub");
+        GameManager.roomManager.MoveTo(Define.RoomKey.TerminalHub);
         return true;
     }
 }
