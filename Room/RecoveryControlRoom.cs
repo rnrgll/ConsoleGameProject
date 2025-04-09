@@ -1,7 +1,11 @@
 namespace ConsoleGameProject;
 
-public class RecoveryControlRoom : Room
+public class RecoveryControlRoom : Room, IRecoverableRoom
 {
+    
+    public string RecoverableModule => "shop";
+
+    
     public RecoveryControlRoom()
     {
         Name = "Recovery Control Room - 복원 컨트롤 룸";
@@ -10,6 +14,8 @@ public class RecoveryControlRoom : Room
         Connections["west"] = "VirusZone";
         Connections["north"] = "DataCacheRoom"; 
     }
+    
+
 
     public override void Render()
     {

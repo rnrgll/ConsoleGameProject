@@ -1,7 +1,10 @@
 namespace ConsoleGameProject;
 
-public class TermialHub : Room
+public class TermialHub : Room, IRecoverableRoom
 {
+    public string RecoverableModule => "move";
+
+    
     public TermialHub()
     {
         Name = "Terminal Hub - 터미널 허브";
@@ -9,8 +12,9 @@ public class TermialHub : Room
         
         Connections["northeast"] = "ErrorLogRoom";
         Connections["south"] = "VirusZone";
-
+        
     }
+    
 
     public override void Render()
     {

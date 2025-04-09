@@ -11,7 +11,7 @@ public class Title : Room
 
     public override void Render()
     {
-        Console.WriteLine("Glitch_Errorrorro");
+        Console.WriteLine("GL!TCH_TERM");
         Console.WriteLine("게임을 시작하려면 'start'를 입력하세요");
     }
 

@@ -1,7 +1,9 @@
 namespace ConsoleGameProject;
 
-public class VirusZone : Room
+public class VirusZone : Room, IRecoverableRoom
 {
+    public string RecoverableModule => "attack";
+
     public VirusZone()
     {
         Name = "Virus Zone - 바이러스 존";

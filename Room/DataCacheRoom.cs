@@ -1,7 +1,9 @@
 namespace ConsoleGameProject;
 
-public class DataCacheRoom : Room
+public class DataCacheRoom : Room, IRecoverableRoom
 {
+    public string RecoverableModule => "inventory";
+
     public DataCacheRoom()
     {
         Name = "Data Cache Room - 데이터 캐시 룸";

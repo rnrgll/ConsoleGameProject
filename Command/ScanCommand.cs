@@ -1,7 +1,11 @@
 namespace ConsoleGameProject.Command;
 
-public class ScanCommand : ICommand
+public class ScanCommand : Command, ICommand
 {
+    public ScanCommand() : base("scan", Define.CommandHints.Scan)
+    {
+    }
+
     public bool Execute(string[] args)
     {
         if (GameManager.roomManager.CurRoom is Title)

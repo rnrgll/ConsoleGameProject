@@ -1,7 +1,10 @@
 namespace ConsoleGameProject;
 
-public class ErrorLogRoom : Room
+public class ErrorLogRoom : Room, IRecoverableRoom
 {
+    
+    public string RecoverableModule => "log";
+    
     public ErrorLogRoom()
     {
         Name = "Error Log Room - 에러 로그 룸";
@@ -10,6 +13,9 @@ public class ErrorLogRoom : Room
         Connections["southeast"] = "DataCacheRoom";
 
     }
+    
+  
+
 
     public override void Render()
     {
@@ -30,4 +36,6 @@ public class ErrorLogRoom : Room
     {
         throw new NotImplementedException();
     }
+
+    
 }

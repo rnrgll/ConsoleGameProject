@@ -7,39 +7,10 @@ namespace ConsoleGameProject;
 /// </summary>
 public class CommandParser
 {
-    //명령어 이름 - 명령어 객체 생성 팩토리 함수 매핑하는 딕셔너리
-    private Dictionary<string, Func<ICommand>> commands;
-    
     //사용자 입력 파싱 결과
     private string[] tokens; //공백 기준 분리
     private string commandName; //첫 번째 요소 : 명령어
     private string[] args; // 나머지 요소 : 인자
-    
-    //생성자
-    public CommandParser()
-    {
-        
-        commands = new Dictionary<string,Func<ICommand>>(20);
-        
-        InitializeCommand();
-        
-        
-    }
-
-    /// <summary>
-    /// 명령어 이름과 명령어 객체 생성 함수 딕셔너리에 등록
-    /// </summary>
-    public void InitializeCommand()
-    {
-        commands["start"] = () => new StartCommand();
-        commands["move"] = () => new MoveCommand();
-        commands["scan"] = () => new ScanCommand();
-        commands["recover"] = () => new RecoverCommand();
-        
-        //추가
-       
-
-    }
 
     /// <summary>
     /// 사용자 입력을 파싱하여 명령어 실행
@@ -63,31 +34,39 @@ public class CommandParser
         args = tokens.Skip(1).ToArray();
 
         //딕셔너리에 등록된 명령어인지 확인
-        if (commands.TryGetValue(commandName, out Func<ICommand> commandFactory))
+        if (!Define.Commands.TryGetValue(commandName, out Func<ICommand> commandFactory))
         {
-            //등록됐다면 명령어 객체 생성
-            ICommand command = commandFactory();
-            
-            //실행
-            bool isSuccess = command.Execute(args);
-
-            if (!isSuccess)
-            {
-                //출력문구
-                Util.TerminalError("오류 발생 : 명령어 실행에 실패했습니다.",
-                    "500_COMMAND_EXECUTION_FAILED");
-            }
-                
-            
-            return isSuccess;
+            //실패
+            Util.TerminalError("오류 발생 :존재하지 않는 명령어입니다.",
+                "404_COMMAND_NOT_FOUND");
+            return false;
         }
 
-        //실패
-        Util.TerminalError("오류 발생 : 명령어를 인식할 수 없습니다.",
-            "404_COMMAND_NOT_FOUND");
-        return false;
+        // 명령어가 현재 사용 가능한 명령어인지 체크
+        if (!GameManager.player.UsableCommand.Contains(commandName))
+        {
+            Util.TerminalError($"오류: '{commandName}' 명령어는 사용할 수 없습니다. 복구가 필요합니다.",
+                "403_COMMAND_LOCKED");
+            return false;
 
+        }
+        
 
+        //등록됐다면 명령어 객체 생성
+        ICommand command = commandFactory();
+            
+        //실행
+        bool isSuccess = command.Execute(args);
+
+        if (!isSuccess)
+        {
+            //출력문구
+            Util.TerminalError("오류 발생 : 명령어 실행에 실패했습니다.",
+                "500_COMMAND_EXECUTION_FAILED");
+        }
+                
+            
+        return isSuccess;
 
     }
  
