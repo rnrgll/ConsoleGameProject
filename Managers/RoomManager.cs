@@ -20,8 +20,9 @@ public class RoomManager
     public void InitializeRoom()
     { 
         //인스턴스 생성
-        //방 종류 : 터미널 허브, 에러 로그룸, 데이터 캐시, 복원 컨트롤 룸, 바이러스 존, 타이틀 씬, 엔딩 씬
+        //방 종류 : 터미널 허브, 에러 로그룸, 데이터 캐시, 복원 컨트롤 룸, 바이러스 존, 타이틀 씬, 인트로씬, 엔딩 씬
         Room title = new Title();
+        Room intro = new Intro();
         Room ending = new Ending();
         Room terminalHub = new TermialHub();
         Room errorLogRoom = new ErrorLogRoom();
@@ -32,6 +33,7 @@ public class RoomManager
         
         //딕셔너리에 추가
         roomDic["Title"] = title;
+        roomDic["Intro"] = intro;
         roomDic["Ending"] = ending;
         roomDic["TerminalHub"] = terminalHub;
         roomDic["ErrorLogRoom"] = errorLogRoom;
@@ -60,11 +62,13 @@ public class RoomManager
         if (roomDic.TryGetValue(roomKey, out var nextRoom))
         {
             curRoom = nextRoom;
-            
-            
-            Util.TerminalLog($"{curRoom.Name}으로/로 이동합니다...", delay: 500);
-            Util.WaitForAnyKey();
 
+            if (nextRoom is not Intro)
+            {
+                Util.TerminalLog($"{curRoom.Name}으로/로 이동합니다...", delay: 500);
+                Util.WaitForAnyKey();
+            }
+            
             Console.Clear();
             curRoom.OnEnter();
 

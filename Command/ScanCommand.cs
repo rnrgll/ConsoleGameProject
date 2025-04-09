@@ -8,7 +8,7 @@ public class ScanCommand : Command, ICommand
 
     public bool Execute(string[] args)
     {
-        if (GameManager.roomManager.CurRoom is Title)
+        if (GameManager.roomManager.CurRoom is Intro)
         {
             return false;
         }
