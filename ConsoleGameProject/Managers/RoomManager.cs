@@ -25,10 +25,9 @@ public class RoomManager
         Room intro = new Intro();
         Room ending = new Ending();
         Room terminalHub = new TermialHub();
-        Room errorLogRoom = new ErrorLogRoom();
+        Room logControlRoom = new LogControl();
         Room virusZone = new VirusZone();
-        Room dataCache = new DataCacheRoom();
-        Room recoveryRoom = new RecoveryControlRoom();
+        Room recoveryRoom = new RecoveryControl();
         
         
         //딕셔너리에 추가
@@ -36,9 +35,8 @@ public class RoomManager
         roomDic["Intro"] = intro;
         roomDic["Ending"] = ending;
         roomDic["TerminalHub"] = terminalHub;
-        roomDic["ErrorLogRoom"] = errorLogRoom;
+        roomDic["LogControlRoom"] = logControlRoom;
         roomDic["VirusZone"] = virusZone;
-        roomDic["DataCacheRoom"] = dataCache;
         roomDic["RecoveryControlRoom"] = recoveryRoom;
         
         
