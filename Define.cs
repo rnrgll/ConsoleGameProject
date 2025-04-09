@@ -39,4 +39,11 @@ public class Define
         public static readonly ConsoleColor Prompt = ConsoleColor.Green;
     }
 
+
+    public static class GameInfo
+    {
+        public const string Developer = "이도현";
+        public const string Version = "v0.1.3";
+    }
+
 }

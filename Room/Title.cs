@@ -30,8 +30,8 @@ public class Title : Room
 
         Util.PrintLine("                             게임을 시작하려면 아무 키나 입력하세요.");
 
-        Util.PrintLine("                                      개발자: 이도현");
-        Util.PrintLine("                                      버전: v0.1.3 [DEMO]");
+        Util.PrintLine($"                                      개발자: {Define.GameInfo.Developer}");
+        Util.PrintLine($"                                    버전: {Define.GameInfo.Version} [DEMO]");
         Console.WriteLine();
 
     }
