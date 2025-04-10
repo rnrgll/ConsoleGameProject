@@ -57,7 +57,7 @@ public class RoomManager
         {
             curRoom = nextRoom;
 
-            if (nextRoom is not Intro)
+            if (nextRoom is not Intro && nextRoom is not Ending)
             {
                 Util.TerminalLog($"{curRoom.Name}으로/로 이동합니다...", delay: 500);
                 Util.WaitForAnyKey();

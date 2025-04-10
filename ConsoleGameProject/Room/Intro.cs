@@ -18,12 +18,6 @@ public class Intro : Room
     public override void Render()
     {
         Util.PrintProgressBar("시스템 부팅 중");
-        // Util.Print("시스템 부팅 중 [",ConsoleColor.Green);
-        // for (int i = 0; i <= 20; i++)
-        // {
-        //     Util.Print("■", ConsoleColor.Green, delay:50);
-        // }
-        // Util.PrintLine("] 완료",ConsoleColor.Green, delay:500);
         Console.WriteLine();
         
         Util.TerminalLog($"시스템 초기화 중... [GL!TCH_TERM {Define.GameInfo.Version}]", ConsoleColor.Green, 600);

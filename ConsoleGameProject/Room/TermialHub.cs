@@ -53,8 +53,8 @@ public class TermialHub : Room, IRecoverable, IScannable
         
         if (!GameManager.player.UsableCommand.Contains("scan"))
         {
-            Util.TerminalLog("관리자 권한이 확인되었습니다.", ConsoleColor.Green);
-            Util.TerminalLog("scan 명령어가 활성화되었습니다.", ConsoleColor.Green);
+            Util.TerminalLog("관리자 권한이 확인", ConsoleColor.Green);
+            Util.TerminalLog("scan 명령어 활성화", ConsoleColor.Green);
             Console.WriteLine();
         
             // GameManager.player.AddCommand(new ScanCommand());

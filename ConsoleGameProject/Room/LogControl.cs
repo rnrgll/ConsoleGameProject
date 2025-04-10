@@ -66,6 +66,7 @@ public class LogControl : Room, IRecoverable, IScannable, ILoggable
     
     public override void Update()
     {
+        
     }
 
     public override void Result()

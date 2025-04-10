@@ -23,7 +23,7 @@ public class LogCommand : Command
         if (GameManager.roomManager.CurRoom is not ILoggable loggableRoom)
         {
             Util.TerminalLog("로그 시스템이 존재하지 않는 구역입니다.", ConsoleColor.Red);
-            return true;
+            return false;
         }
         
         

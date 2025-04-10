@@ -11,6 +11,7 @@ public class Define
         { "scan", () => new ScanCommand() },
         { "recover", () => new RecoverCommand() },
         { "log", () => new LogCommand() },
+        {"logout", () => new LogoutCommand()},
         //{ "shop", () => new ShopCommand() },
         //{ "attack", () => new AttackCommand() }
     };
@@ -24,7 +25,7 @@ public class Define
         public const string Log = "log : 시스템 로그를 조회합니다. 해당 구역에 로그 시스템이 있을 경우에만 사용 가능합니다.";
         public const string Vaccine = "";
         public const string Attack = "attack 명령어로 전투를 시작할 수 있습니다. 적을 쓰러뜨리세요!";
-        public const string Logout = "";
+        public const string Logout = "logout : 콘솔 세션을 종료할 수 있습니다.";
     }
     
     public enum RoomKey
