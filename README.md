@@ -48,5 +48,6 @@
 <br>
 
 ## 🎥 플레이 영상
-아래 이미지를 클릭하면 유튜브에서 GL!TCH_TERM 시연 영상을 보실 수 있습니다.
+아래 이미지를 클릭하면 유튜브에서 GL!TCH_TERM 시연 영상을 보실 수 있습니다.  
+
 [![GL!TCH_TERM 시연 영상](https://img.youtube.com/vi/LhSCbJnoHXI/0.jpg)](https://youtu.be/LhSCbJnoHXI)  
