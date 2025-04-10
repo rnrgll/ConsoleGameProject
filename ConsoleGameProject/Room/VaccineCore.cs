@@ -1,3 +1,4 @@
+using System.Drawing;
 using ConsoleGameProject.Interface;
 
 namespace ConsoleGameProject;
@@ -26,9 +27,9 @@ public class VaccineCore : Room, IRecoverable, IScannable, ILoggable
         else
         {
             
-            Util.TerminalLog("시스템 로그 접근이 차단되어 있습니다.", delay: 500);
-            Util.TerminalLog("LOG-MODULE 상태: 손상됨", delay: 500);
-            Util.TerminalLog("로그 조회 불가능 — 로그 시스템 복구 필요", delay: 500);
+            Util.TerminalLog("시스템 로그 접근이 차단되어 있습니다.",ConsoleColor.Red, delay: 500);
+            Util.TerminalLog("LOG-MODULE 상태: 손상됨",ConsoleColor.Red, delay: 500);
+            Util.TerminalLog("로그 조회 불가능 — 로그 시스템 복구 필요",ConsoleColor.Red, delay: 500);
 
 
         }
@@ -42,6 +43,8 @@ public class VaccineCore : Room, IRecoverable, IScannable, ILoggable
         "[LOG 02:17:17] Required: log_module, integrity_module",
         "[LOG 02:18:00] SYSTEM RESPONSE: Retrying in safe mode...",
         "[LOG 02:18:05] CRITICAL ERROR: Isolation failed. Infection spreading.",
+        "[LOG 02:18:10] Hint: Manual recovery of module is required",
+
 
     };
     

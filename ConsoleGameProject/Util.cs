@@ -66,7 +66,7 @@ public class Util
     }
     
     
-    public static void WaitForAnyKey(string message = "[GL!TCH_TERM] >> 계속하려면 아무 키나 누르세요...", ConsoleColor? textColor = ConsoleColor.DarkGray)
+    public static void WaitForAnyKey(string message = "[GL!TCH_TERM] >> 계속하려면 아무 키나 누르세요...", ConsoleColor? textColor = null)
     {
         PrintLine(message, textColor);
 

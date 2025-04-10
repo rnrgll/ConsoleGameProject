@@ -42,7 +42,7 @@ public class VaccineCommand : Command
                 IsVaccineActive = true;
                 Util.PrintProgressBar("백신 시스템 활성화 중");
                 Util.TerminalLog("백신 시스템이 정상적으로 작동을 시작했습니다.", ConsoleColor.Green, delay:600);
-                Util.TerminalLog("바이러스에 대한 공격 프로토콜이 개방되었습니다", ConsoleColor.Green);
+                Util.TerminalLog("바이러스에 대한 공격 프로토콜이 개방되었습니다", ConsoleColor.Green,delay:600);
                 
 
                 //만약 플레이어의 사용 가능한 명령어에 attack이 없다면, attack을 활성화한다.

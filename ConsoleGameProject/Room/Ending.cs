@@ -86,7 +86,7 @@ public class Ending : Room
 
         
         
-        Util.TerminalLine("          게임을 플레이해주셔서 감사합니다!");
+        Util.Print("            게임을 플레이해주셔서 감사합니다!");
         Util.WaitForAnyKey("             종료하려면 아무 키나 누르세요...");
         Environment.Exit(0);
     }

@@ -35,7 +35,7 @@ public class RecoverCommand : Command
             return false;
         }
 
-        if (!recoverableRoom.RecoverableModule.Equals(moduleName))
+        if (string.IsNullOrEmpty(recoverableRoom.RecoverableModule) || recoverableRoom.RecoverableModule != moduleName)
         {
             Util.TerminalError($"오류 : '{moduleName}' 모듈을 복구할 수 없습니다.", "403_MODULE_NOT_AVAILABLE");
             return false;

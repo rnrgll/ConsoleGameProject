@@ -23,7 +23,7 @@ public class AttackCommand : Command
                 bool isSuccess = OnAttack();
                 if (!isSuccess)
                 {
-                    Util.TerminalError("바이러스 쫓아내는거 실패하는 오류 출력 메시지~");
+                    return false;
                 }
                 
                 return true;
@@ -31,8 +31,7 @@ public class AttackCommand : Command
             else
             {
                 //공격 대상이 없다는 오류 문구
-                Util.TerminalError("오류 : 활성 위협 요소 없음", "403_NO_TARGET");
-                Util.TerminalLog("공격 대상을 찾을 수 없습니다.", ConsoleColor.Red);
+                Util.TerminalError("오류 : 공격 대상을 찾을 수 없습니다.", "403_NO_TARGET");
                 return false;
             }
             
@@ -41,8 +40,8 @@ public class AttackCommand : Command
         
         //백신이 비활성화 상태여서 공격 명령어 사용이 불가능하다는 오류 문구
         Util.TerminalLog("백신 시스템이 비활성화 상태입니다.", ConsoleColor.Red,600);
-        Util.TerminalLog("보안을 위해 바이러스와의 접촉이 차단됩니다.", ConsoleColor.Red,600);
-        Util.TerminalLine("vaccine active 명령어로 백신 시스템을 먼저 가동하세요.");
+        Util.TerminalLog("공격 기능을 사용할 수 없습니다.", ConsoleColor.Red,600);
+        Util.TerminalLine("vaccine active 명령어로 백신 시스템을 먼저 가동하세요.",ConsoleColor.Red);
         return false;
 
     }
@@ -54,7 +53,7 @@ public class AttackCommand : Command
         Util.TerminalLog("백신 시스템 활성화 상태 확인됨.", delay: 800);
         Util.TerminalLog("정화 프로토콜을 시작합니다...", delay: 1200);
         Util.TerminalLog("감염 소스 탐지 중...", delay: 1500);
-        Util.TerminalLog("바이러스 시그니처 분석 시작: VX-███", ConsoleColor.Cyan, delay: 1500);
+        Util.TerminalLog("바이러스 시그니처 분석 시작: VX_███", ConsoleColor.Cyan, delay: 1500);
 
         
         Util.TerminalLine("▼ 감염된 바이러스의 시그니처를 입력하세요.", ConsoleColor.Cyan);
@@ -70,7 +69,7 @@ public class AttackCommand : Command
         Util.PrintProgressBar("격리 절차 진행 중");
         
         Util.TerminalLog("긴급 대응 비밀번호 입력 필요: _ _ _ - _ _ _ _", ConsoleColor.Cyan, delay: 600);
-        Util.TerminalLine("▼ 비밀번호를 입력하세요: ", ConsoleColor.Cyan);
+        Util.TerminalLine("▼ 비밀번호를 입력하세요.", ConsoleColor.Cyan);
         input = Util.TerminalInput().Trim().ToUpper();
 
         if (input != Define.AttackCode[1])

@@ -2,8 +2,12 @@ using ConsoleGameProject.Interface;
 
 namespace ConsoleGameProject;
 
-public class SystemCore : Room, IScannable, ILoggable
+public class SystemCore : Room, IScannable, ILoggable, IRecoverable
 {
+
+    public string RecoverableModule { get; } = null;
+    public bool isRecovered { get; set; } = false;
+    
     public Action OnScanned { get; set; } = () =>
     {
         Util.TerminalLog("모듈 전반에 바이러스 감염이 확인되며, 주요 기능이 정지된 상태입니다.", delay: 500);
@@ -22,9 +26,9 @@ public class SystemCore : Room, IScannable, ILoggable
         else
         {
             
-            Util.TerminalLog("시스템 로그 접근이 차단되어 있습니다.", delay: 500);
-            Util.TerminalLog("LOG-MODULE 상태: 손상됨", delay: 500);
-            Util.TerminalLog("로그 조회 불가능 — 로그 시스템 복구 필요", delay: 500);
+            Util.TerminalLog("시스템 로그 접근이 차단되어 있습니다.", ConsoleColor.Red, delay: 500);
+            Util.TerminalLog("LOG-MODULE 상태: 손상됨", ConsoleColor.Red ,delay: 500);
+            Util.TerminalLog("로그 조회 불가능 — 로그 시스템 복구 필요", ConsoleColor.Red, delay: 500);
 
 
         }
@@ -38,9 +42,17 @@ public class SystemCore : Room, IScannable, ILoggable
         $"[LOG 02:30:15] Malware signature: {Define.AttackCode[0]}",
         "[LOG 02:30:25] Quarantine failed — infection adapting",
         $"[LOG 02:30:35] Emergency containment password initialized: {Define.AttackCode[1]}",
+        "",
+        "[LOG 02:30:40] ▓▒▒ VaccineEngine status: OFFLINE ▒▒▓",
+        "[LOG 02:30:40] >> STATUS ALERT: VaccineEngine = OFFLINE",
+        "[LOG 02:30:40] >>> VaccineEngine [OFFLINE] — Defense disabled",
+        "",
+        
         "[LOG 02:30:45] Attempting full shutdown...",
         "[LOG 02:30:50] Shutdown aborted — access level insufficient",
         "[LOG 02:30:55] Manual countermeasure required",
+        "[LOG 02:30:56] Hint: Activate vaccine and execute attack",
+
 
     };
     
@@ -73,4 +85,6 @@ public class SystemCore : Room, IScannable, ILoggable
     public override void Result()
     {
     }
+
+  
 }
