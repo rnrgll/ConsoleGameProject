@@ -37,15 +37,7 @@ public class Title : Room
     {
         Console.CursorVisible = false;
         Console.ReadKey(true);
-    }
-
-    public override void Update()
-    {
         
-    }
-
-    public override void Result()
-    {
         GameManager.roomManager.MoveTo(nextRoomKey);
         Console.CursorVisible = true;
     }

@@ -55,16 +55,7 @@ public class Ending : Room
         Util.TerminalLine("시스템 종료를 위해 'logout' 명령어를 입력하세요.", delay : 100);
         
     }
-
-    public override void Update()
-    {
-        
-    }
-
-    public override void Result()
-    {
-        
-    }
+    
 
     private void OnLogout()
     {
@@ -86,7 +77,7 @@ public class Ending : Room
 
         
         
-        Util.Print("            게임을 플레이해주셔서 감사합니다!");
+        Util.PrintLine("            게임을 플레이해주셔서 감사합니다!");
         Util.WaitForAnyKey("             종료하려면 아무 키나 누르세요...");
         Environment.Exit(0);
     }

@@ -47,8 +47,6 @@ public class RoomManager
     public void UpdateCurrentRoom()
     {
         curRoom.Input();
-        curRoom.Update();
-        curRoom.Result();
     }
 
 

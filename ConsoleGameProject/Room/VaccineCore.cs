@@ -66,19 +66,5 @@ public class VaccineCore : Room, IRecoverable, IScannable, ILoggable
 
         Connections["north"] = Define.RoomKey.TerminalHub;
     }
-
-
-    public void AddLogMessage()
-    {
-        
-    }
-
-
-    public override void Update()
-    {
-    }
-
-    public override void Result()
-    {
-    }
+    
 }

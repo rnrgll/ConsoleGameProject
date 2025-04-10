@@ -35,8 +35,8 @@ public class Intro : Room
         
         Console.WriteLine();
 
-        Util.TerminalLog("관리자 권한 임시 승인됨", ConsoleColor.Red, 600);
-        Util.TerminalLog("현재 사용 가능한 명령어: 'start'", ConsoleColor.Red, 600);
+        Util.TerminalLog("관리자 권한 임시 승인됨", ConsoleColor.Green, 600);
+        Util.TerminalLog("현재 사용 가능한 명령어: 'start'", ConsoleColor.Green, 600);
         Util.TerminalLine("'start' 명령어를 입력해 복구 프로세스를 시작하세요.",null, 800);
 
         
@@ -45,12 +45,5 @@ public class Intro : Room
     }
     
     
-
-    public override void Update()
-    {
-    }
-
-    public override void Result()
-    {
-    }
+    
 }

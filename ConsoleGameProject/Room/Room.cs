@@ -35,6 +35,4 @@ public abstract class Room
         }
         while (!GameManager.parser.ParseAndExecute(input));
     }
-    public abstract void Update();
-    public abstract void Result();
 }

@@ -63,14 +63,5 @@ public class TermialHub : Room, IRecoverable, IScannable
     }
     
 
-
-    public override void Update()
-    {
-    }
-
-    public override void Result()
-    {
-    }
-
    
 }
