@@ -73,7 +73,7 @@ public class SystemCore : Room, IScannable, ILoggable, IRecoverable
             "본 구역은 GL!TCH_TERM의 중앙 제어 모듈이 위치한 장소입니다.",
         };
 
-        Connections["north"] = Define.RoomKey.LogControlRoom;
+        Connections["northwest"] = Define.RoomKey.LogControlRoom;
         Connections["west"] = Define.RoomKey.TerminalHub;
 
     }
