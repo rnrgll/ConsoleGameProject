@@ -3,7 +3,7 @@ namespace ConsoleGameProject;
 public class Title : Room
 {
     //private string nextRoomKey = "Intro";
-    private Define.RoomKey nextRoomKey = Define.RoomKey.Ending; //최종에서는 Intro로 돌려놓기
+    private Define.RoomKey nextRoomKey = Define.RoomKey.Intro; //최종에서는 Intro로 돌려놓기
     
     public Title()
     {
@@ -14,10 +14,6 @@ public class Title : Room
     public override void OnEnter()
     {
         Console.CursorVisible = false;
-    }
-
-    public override void Render()
-    {
         Console.Clear();
 
         // 로고
@@ -34,8 +30,8 @@ public class Title : Room
         Util.PrintLine($"                                      개발자: {Define.GameInfo.Developer}");
         Util.PrintLine($"                                    버전: {Define.GameInfo.Version} [DEMO]");
         Console.WriteLine();
-
     }
+    
 
     public override void Input()
     {

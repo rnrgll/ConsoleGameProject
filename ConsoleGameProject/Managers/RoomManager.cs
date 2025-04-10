@@ -32,19 +32,20 @@ public class RoomManager
         roomDic[RoomKey.Ending] = new Ending();
         roomDic[RoomKey.TerminalHub] = new TermialHub();
         roomDic[RoomKey.LogControlRoom] = new LogControl();
-        roomDic[RoomKey.VirusZone] = new VirusZone();
-        roomDic[RoomKey.RecoveryControlRoom] = new RecoveryControl();
+        roomDic[RoomKey.SystemCore] = new SystemCore();
+        roomDic[RoomKey.VaccineCore] = new VaccineCore();
         
         
         //현재 방 설정
-        curRoom = roomDic[RoomKey.Title];
+        // curRoom = roomDic[RoomKey.Title];
+        MoveTo(RoomKey.Title);
+        
     }
     
     
     
     public void UpdateCurrentRoom()
     {
-        curRoom.Render();
         curRoom.Input();
         curRoom.Update();
         curRoom.Result();
@@ -57,7 +58,7 @@ public class RoomManager
         {
             curRoom = nextRoom;
 
-            if (nextRoom is not Intro && nextRoom is not Ending)
+            if (nextRoom is not Intro && nextRoom is not Ending && nextRoom is not Title)
             {
                 Util.TerminalLog($"{curRoom.Name}으로/로 이동합니다...", delay: 500);
                 Util.WaitForAnyKey();

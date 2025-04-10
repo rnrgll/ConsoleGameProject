@@ -12,11 +12,6 @@ public class Intro : Room
     
     public override void OnEnter()
     {
-        
-    }
-
-    public override void Render()
-    {
         Util.PrintProgressBar("시스템 부팅 중");
         Console.WriteLine();
         
@@ -26,9 +21,9 @@ public class Intro : Room
         Util.TerminalLog("세션 ID: #UNKN0WN_USER", ConsoleColor.Green, 1500);
         Console.WriteLine();
         
-        Util.TerminalLog("오류! : 사용자 식별 실패", ConsoleColor.Red, 1500);
-        Util.TerminalLog("오류! : 데이터 무결성 검증 실패", ConsoleColor.Red, 1500);
-        Util.TerminalLog("오류! : 주요 시스템 모듈 다수 손상 감지", ConsoleColor.Red, 2000);
+        Util.TerminalLog("오류 : 사용자 식별 실패", ConsoleColor.Red, 1500);
+        Util.TerminalLog("오류 : 데이터 무결성 검증 실패", ConsoleColor.Red, 1500);
+        Util.TerminalLog("오류 : 주요 시스템 모듈 다수 손상 감지", ConsoleColor.Red, 2000);
         Console.WriteLine();
 
         Util.TerminalLine("현재 콘솔 시스템에 심각한 오류가 발생했습니다.", null, 800);
@@ -42,13 +37,13 @@ public class Intro : Room
 
         Util.TerminalLog("관리자 권한 임시 승인됨", ConsoleColor.Red, 600);
         Util.TerminalLog("현재 사용 가능한 명령어: 'start'", ConsoleColor.Red, 600);
-        Util.TerminalLine("'start' 명령어를 입력해 복구 프로세스를 시작하세요.", ConsoleColor.Cyan, 800);
+        Util.TerminalLine("'start' 명령어를 입력해 복구 프로세스를 시작하세요.",null, 800);
 
         
         //다시 보이도록 처리
         Console.CursorVisible = true;
-
     }
+    
     
 
     public override void Update()

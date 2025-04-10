@@ -45,19 +45,14 @@ public class Ending : Room
         Util.TerminalLog("사용자 인증: 정상", ConsoleColor.Green, 1500);
         Util.TerminalLog("데이터 무결성: OK", ConsoleColor.Green, 1500);
         Util.TerminalLog("모듈 상태: 100% ONLINE", ConsoleColor.Green, 2000);
-        Util.TerminalLog("GL!TCH_TERM 정상 복구 완료", ConsoleColor.Green,delay:600);
+        Util.TerminalLog("GL!TCH_TERM 복구 완료", ConsoleColor.Green,delay:600);
         Util.TerminalLog("복구 시스템 종료 중...", ConsoleColor.Green,delay:1500);
-        Util.TerminalLog("logout 명렁어 활성화",ConsoleColor.Green, delay:1000);
+        Util.TerminalLog("logout 명렁어를 활성화합니다",ConsoleColor.Green, delay:1000);
         new LogoutCommand().OnRecovered?.Invoke();
         Util.Print("", delay:1200);
         
         Util.TerminalLine("GL!TCH_TERM이 정상 상태로 복구되었습니다.", delay : 1000);
         Util.TerminalLine("시스템 종료를 위해 'logout' 명령어를 입력하세요.", delay : 100);
-        
-    }
-
-    public override void Render()
-    {
         
     }
 
